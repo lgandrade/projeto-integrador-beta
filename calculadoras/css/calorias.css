@@ -1,0 +1,96 @@
+/* Calorie Input page styling from lines 287 - 345 */
+/* setting flex display properties for overall form container main element within which the PDCT data entry occurs */
+.formcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 15px;
+    padding-top: 15px;
+    min-height: 75vh;
+}
+
+/* Formatting & styling PDCT form header to be centralised with appropriate padding */
+.formcontainer h3 {
+    padding-bottom: 35px;
+    text-align: center;
+}
+
+/* Styling firstform id - this is the id of the parent data entry form element on calories.html 
+With black opaque background to ensure foreground information is never distracted by background image*/
+#firstform {
+    border: 1.5px solid white;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 400px;
+}
+
+/* Applying styles to page container to resolve original choppy display issues */
+#firstformcontainer {
+    display: flex;
+    width: 95vw;
+    justify-content: center;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+/* Each form input is wrapped in a div - this styling will keep a consistent height for the div spacing */
+#firstform section {
+    height: 50px;
+}
+
+/* The 3x text entry fields in the form have class "formdata" - this styling aligns them within the 
+parent container using flex */
+.formdata {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Setting the heights & widths of the formdata inputs for text data entry */
+.formdata input {
+    height: 25px;
+    width: 75px;
+}
+
+/* Styling container element for "calculate my pdct" button - using flex to center display */
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calorieSelects {
+    display: flex;
+    justify-content: space-between;
+}
+
+select {
+    height: 23px;
+    max-width: 150px;
+}
+
+/* Setting styling for PDCT Display Box to display user's PDCT after calculation*/
+#pdct-section {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2.25rem;
+    border: 3px solid white;
+    border-radius: 20%;
+    color: white;
+    background: black;
+    width: 280px;
+    padding-left: 15px
+}
+
+/* Media queries to aid layout of pdct-section and the form container on screens smaller than 400px */
+@media screen and (max-width:400px) {
+    #pdct-section {
+        font-size: 1.25rem;
+    }
+
+    #firstformcontainer {
+        margin-top: 1px;
+    }
+}

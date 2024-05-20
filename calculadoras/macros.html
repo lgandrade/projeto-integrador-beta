@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calorie Calculation & Control">
+    <meta name="keywords" content="healthy eating, calorie control, macronutrient, meal-plan">
+
+    <link rel="stylesheet" href="./css/style2.css">
+    <link rel='icon' sizes="192x192" href="../img/fotos/five-icon.png" type="image/png">
+
+    <title>CalorieCulator</title>
+</head>
+
+<body>
+    <div class="header container">
+        <a href="./index.html"><img src="../img/fotos/logo-nutri.png" width="136" height="32" alt="logo"/></a>
+        <nav aria-label="primaria">
+            <ul class="header-menu font-1-m cor-0">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./calorias.html">Minhas Calorias</a></li>
+                <li><a href="./contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <main id="macro-container">
+        <section class="titleBox">
+            <h2 class="mainlogo">- Passo 2: Escolha <i class="fas fa-fire"></i> -<br>
+                (Opção de Divisão de Macros)</h2>
+        </section>
+        
+        <section id="macro-step2">
+            <article id="macros-box">
+                <section class="button-container">
+                    <button id="carry-pdct">Começar - Importar Meu PDCT</button>
+                </section>
+                
+                <section id="macros-logo"> - Seu PDCT:
+                    <span id="pdct-box"></span>
+                    <i class="fas fa-fire"></i> -
+                </section>
+            </article>
+        </section>
+        
+        <section id="choose-macro" class="hide">
+            <form method="POST" action="https://formdump.codeinstitute.net/">
+                <h2 id="split_header">Agora Escolha <br> Uma Divisão de Macro:</h2>
+                <section class="splitOptions">
+                    <label for="standard">Padrão Equilibrado</label>
+                    <input type="radio" id="standard" name="macro_choice" value="standard">
+                    
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Macronutriente</th>
+                                <th>Alocação (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Proteína</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td>Carboidrato</td>
+                                <td>45%</td>
+                            </tr>
+                            <tr>
+                                <td>Gordura</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section class="splitOptions">
+                    <label for="high-protein">Alta Proteína</label>
+                    <input type="radio" id="high-protein" name="macro_choice" value="high-protein">
+                    
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Macronutriente</th>
+                                <th>Alocação (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Proteína</td>
+                                <td>40%</td>
+                            </tr>
+                            <tr>
+                                <td>Carboidrato</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td>Gordura</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section class="splitOptions">
+                    <label for="low-carb">Baixo Carboidrato</label>
+                    <input type="radio" id="low-carb" name="macro_choice" value="low-carb">
+                    
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Macronutriente</th>
+                                <th>Alocação (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Proteína</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td>Carboidrato</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>Gordura</td>
+                                <td>55%</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section class="button-container" class="hide">
+                    <button type="button" id="calculate-macros">Aplicar Divisão ao PDCT</button>
+                </section>
+            </form>
+        </section>
+        
+        <section id="macro-step3">
+            <section id="yourMacrosSection" class="hide">
+                <h3 id="yourmacros">Seus Macros:</h3>
+                
+                <table class="styled-table" id="userTable">
+                    <thead>
+                        <tr>
+                            <th>Macronutriente</th>
+                            <th>Calorias</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Proteína</td>
+                            <td id="protein"></td>
+                        </tr>
+                        <tr>
+                            <td>Carboidrato</td>
+                            <td id="carbs"></td>
+                        </tr>
+                        <tr>
+                            <td>Gordura</td>
+                            <td id="fat"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td id="total"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="toFinalStepBtn" class="buttonBox hide">
+                <a href="./refeicoes.html" class="buttonlogo">- Para a Etapa Final <i class="fas fa-fire"></i> -</a>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://kit.fontawesome.com/45a746d079.js" crossorigin="anonymous"></script>
+    <script src="./js/macros.js"></script>
+</body>
+</html>

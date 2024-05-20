@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cálculo e Controle de Calorias">
+    <meta name="keywords" content="alimentação saudável, controle de calorias, macronutriente, plano de refeições">
+    
+    <link rel="stylesheet" href="./css/style2.css">
+    <link rel='icon' sizes="192x192" href="../img/fotos/five-icon.png" type="image/png">
+
+    <title>Calculadora de Calorias</title>
+</head>
+
+<body> 
+    
+    <main id="page3Container">
+        
+        <section class="titleBox">
+            <h2 class="mainlogo"> - Etapa 3: Gerar <i class="fas fa-fire"></i> -<br>
+                (Ideias de Planos de Refeições) </h2>
+        </section>
+       
+        <section id="foodListContainer">
+           
+            <section class="food-groups" id="generator_instructions">
+                <h3 id="food-heading">Instruções</h3>
+                <p>Selecione pelo menos um alimento por grupo para inclusão no plano de refeições (ou selecione todos):
+                    
+                    <button id="selectAll">Selecionar Todos</button>
+                </p>
+            </section>
+            
+            <fieldset class="food-groups" id="proteinFieldset">
+                <legend>Proteína:</legend>
+                
+                <div>
+                    <label for="chicken">Frango</label>
+                    <input class="protein-input" type="checkbox" id="chicken" name="frango">
+                </div>
+                <div>
+                    <label for="turkey">Peru</label>
+                    <input class="protein-input" type="checkbox" id="turkey" name="peru">
+                </div>
+                <div>
+                    <label for="fish">Peixe</label>
+                    <input class="protein-input" type="checkbox" id="fish" name="peixe">
+                </div>
+                <div>
+                    <label for="beef">Carne Bovina</label>
+                    <input class="protein-input" type="checkbox" id="beef" name="carne-bovina">
+                </div>
+                <div>
+                    <label for="eggs">Ovos</label>
+                    <input class="protein-input" type="checkbox" id="eggs" name="ovos">
+                </div>
+                <div>
+                    <label for="pork">Carne de Porco</label>
+                    <input class="protein-input" type="checkbox" id="pork" name="carne-de-porco">
+                </div>
+            </fieldset>
+            
+            <fieldset class="food-groups">
+                <legend>Carboidrato:</legend>
+                
+                <div>
+                    <label for="bread">Pão</label>
+                    <input class="carb-input" type="checkbox" id="bread" name="pão">
+                </div>
+                <div>
+                    <label for="pasta">Macarrão</label>
+                    <input class="carb-input" type="checkbox" id="pasta" name="macarrão">
+                </div>
+                <div>
+                    <label for="rice">Arroz</label>
+                    <input class="carb-input" type="checkbox" id="rice" name="arroz">
+                </div>
+                <div>
+                    <label for="oats">Aveia</label>
+                    <input class="carb-input" type="checkbox" id="oats" name="aveia">
+                </div>
+                <div>
+                    <label for="cereal">Cereal</label>
+                    <input class="carb-input" type="checkbox" id="cereal" name="cereal">
+                </div>
+                <div>
+                    <label for="quinoa">Quinoa</label>
+                    <input class="carb-input" type="checkbox" id="quinoa" name="quinoa">
+                </div>
+            </fieldset>
+            
+            <fieldset class="food-groups">
+                <legend>Gordura:</legend>
+                
+                <div>
+                    <label for="butter">Manteiga</label>
+                    <input class="fat-input" type="checkbox" id="butter" name="manteiga">
+                </div>
+                <div>
+
+
+                    <label for="cheese">Queijo</label>
+                    <input class="fat-input" type="checkbox" id="cheese" name="queijo">
+                </div>
+                <div>
+                    <label for="cream">Creme</label>
+                    <input class="fat-input" type="checkbox" id="cream" name="creme">
+                </div>
+                <div>
+                    <label for="nuts">Nozes</label>
+                    <input class="fat-input" type="checkbox" id="nuts" name="nozes">
+                </div>
+                <div>
+                    <label for="bacon">Bacon</label>
+                    <input class="fat-input" type="checkbox" id="bacon" name="bacon">
+                </div>
+                <div>
+                    <label for="olive-oil">Azeite de Oliva</label>
+                    <input class="fat-input" type="checkbox" id="olive-oil" name="Azeite-de-Oliva">
+                </div>
+            </fieldset>
+            
+            <section id="generate-container">
+                <button id="generate-meals">Gerar Um Plano de Refeições</button>
+            </section>
+        </section>
+
+        
+        <section id="mealplan-container">
+            
+            <section class="meal-box" id="breakfast">
+                
+                <table class="meal-table">
+                    <thead>
+                        <tr>
+                            <th>Café da manhã</th>
+                            <th>Comida Escolhida</th>
+                            <th>Gramas</th>
+                            <th>Calorias</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Proteinas</td>
+                            <td id="breakfast-protein-food"></td>
+                            <td id="breakfast-protein-grams"></td>
+                            <td id="breakfast-protein-calories"></td>
+                        </tr>
+                        <tr>
+                            <td>Carboidratos</td>
+                            <td id="breakfast-carbs-food"></td>
+                            <td id="breakfast-carbs-grams"></td>
+                            <td id="breakfast-carbs-calories"></td>
+                        </tr>
+                        <tr>
+                            <td>Gorduras</td>
+                            <td id="breakfast-fat-food"></td>
+                            <td id="breakfast-fat-grams"></td>
+                            <td id="breakfast-fat-calories"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td id="breakfast-total-food"></td>
+                            <td id="breakfast-total-grams"></td>
+                            <td id="breakfast-total-calories"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="meal-box" id="lunch">
+                
+                <table class="meal-table">
+                    <thead>
+                        <tr>
+                            <th>Almoço</th>
+                            <th>Comida Escolhida</th>
+                            <th>Gramas</th>
+                            <th>Calorias</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Proteinas</td>
+                            <td id="lunch-protein-food"></td>
+                            <td id="lunch-protein-grams"></td>
+                            <td id="lunch-protein-calories"></td>
+                        </tr>
+                        <tr>
+                            <td>Carboidratos</td>
+                            <td id="lunch-carbs-food"></td>
+                            <td id="lunch-carbs-grams"></td>
+                            <td id="lunch-carbs-calories"></td>
+                        </tr>
+                        <tr>
+                            <td>Gorduras</td>
+                            <td id="lunch-fat-food"></td>
+                            <td id="lunch-fat-grams"></td>
+                            <td id="lunch-fat-calories"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td id="lunch-total-food"></td>
+                            <td id="lunch-total-grams"></td>
+                            <td id="lunch-total-calories"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        
+            <section class="meal-box" id="dinner">
+        
+                <table class="meal-table">
+                    <thead>
+                        <tr>
+                            <th>Jantar</th>
+                            <th>Comida Escolhida</th>
+                            <th>Gramas</th>
+                            <th>Calorias</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Proteinas</td>
+                            <td id="dinner-protein-food"></td>
+                            <td id="dinner-protein-grams"></td>
+                            <td id="dinner-protein-calories"></td>
+                        </tr>
+                        <tr>
+                            <td>Carboidratos</td>
+                            <td id="dinner-carbs-food"></td>
+                            <td id="dinner-carbs-grams"></td>
+                            <td id="dinner-carbs-calories"></td>
+                        </tr>
+                        <tr>
+                            <td>Gorduras</td>
+                            <td id="dinner-fat-food"></td>
+                            <td id="dinner-fat-grams"></td>
+                            <td id="dinner-fat-calories"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td id="dinner-total-food"></td>
+                            <td id="dinner-total-grams"></td>
+                            <td id="dinner-total-calories"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="meal-box" id="grandTotal">
+                <table class="meal-table">
+                    <thead>
+                        <tr>
+                            <th>Total Geral</th>
+                            <th>Gramas</th>
+                            <th>Calorias</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="grandSubTotal">
+                            <td id="total-header">Todas as Refeições</td>
+                            <td id="total-total-grams"></td>
+                            <td id="total-total-calories"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </main>
+    
+    
+    <script src="https://kit.fontawesome.com/45a746d079.js" crossorigin="anonymous"></script>
+    
+    <script src="./js/refeicoes.js"></script>
+</body>
+
+</html>
+
+ 
+

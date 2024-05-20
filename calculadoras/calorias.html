@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <!-- Tags padrão de conteúdo do cabeçalho html -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Descrição para SEO e acessibilidade -->
+    <meta name="description" content="Cálculo e Controle de Calorias">
+    <!-- Termos-chave de SEO para acessibilidade -->
+    <meta name="keywords" content="alimentação saudável, controle de calorias, macronutrientes, plano alimentar">
+    <!-- Link para a folha de estilo CSS para estilização do conteúdo da página -->
+    <link rel="stylesheet" href="./css/style2.css">
+    <!-- Link para a importação do favicon para exibição no cabeçalho da guia do navegador -->
+    <link rel='icon' sizes="192x192" href="assets/images/favicon.png" type="image/x-icon">
+    <!-- Título para exibição no cabeçalho da guia do navegador -->
+    <title>CalorieCulator</title>
+</head>
+
+<body>
+    
+        <div class="header container">
+          <a href="./index.html"><img src="../img/fotos/logo-nutri.png" width="136" height="55" padding-right="40px" alt="logo"/></a>
+          <nav aria-label="primaria">
+            <ul class="header-menu font-1-m cor-0">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="./calorias.html">Minhas Calorias</a></li>
+              <li><a href="./contato.html">Contato</a></li>
+            </ul>
+          </nav>
+        </div>
+    
+
+    <!-- Seção principal da página - contêiner para abrigar o conteúdo principal da página e permitir a estilização flexível (ver style.css) -->
+    <main class="formcontainer">
+        <!-- Mensagem de boas-vindas com ícone -->
+        <section class="titleBox">
+            <h2 class="mainlogo"> - Passo 1: Calcular PDCT <i class="fas fa-fire"></i> - <br>
+                (Meta Pessoal Diária de Calorias)</h2>
+        </section>
+        <!-- Formulário para abrigar os campos de entrada de dados do usuário para cálculo da meta pessoal diária de calorias (PDCT) -->
+        <section id="firstformcontainer">
+            <form id="firstform" class="bmrinputs" method="POST" action="https://formdump.codeinstitute.net/">
+                <!-- Cabeçalho da seção de entrada de dados para PDCT -->
+                <h3>Por favor, preencha cada campo abaixo:</h3>
+                <!-- Cada uma das 4 seções abaixo contém uma entrada de dados do usuário - para estilização em style.css e funcionalidade JavaScript em calories.js -->
+                <section class="formdata">
+                    <!-- Entrada de idade definida como obrigatória e medida em tipo de dado "número" -->
+                    <label for="age">Idade (Anos):</label>
+                    <input class="age-input pdctInput" id="age" name="age" type="number" required min="18">
+                </section>
+
+                <section class="formdata">
+                    <!-- Entrada de peso definida como obrigatória e medida em tipo de dado "número" -->
+                    <label for="weight">Peso (Kg):</label>
+                    <input class="weight-input pdctInput" id="weight" name="weight" type="number" required>
+                </section>
+
+                <section class="formdata">
+                    <!-- Entrada de altura definida como obrigatória e medida em tipo de dado "número" -->
+                    <label for="height">Altura (cm):</label>
+                    <input class="height-input pdctInput" id="height" name="height" type="number" required>
+                </section>
+
+                <section class="calorieSelects">
+                    <!-- Entrada de gênero - menu suspenso utilizado para refletir seleções limitadas e utilizado na lógica js subsequente -->
+                    <label for="gender">Gênero:</label>
+                    <select class="pdctInput" name="gender-options" id="gender">
+                        <!-- <option value="">Selecionar Gênero</option> -->
+                        <option value="male">Masculino</option>
+                        <option value="female">Feminino</option>
+                    </select>
+                </section>
+
+                <section class="calorieSelects">
+                    <!-- Entrada de nível de atividade - menu suspenso utilizado para refletir seleções limitadas e utilizado na lógica js subsequente -->
+                    <label for="activity">Nível de Atividade:</label>
+                    <select class="pdctInput" name="activity-options" id="activity">
+                        <!-- <option value="">Nível de Atividade</option> -->
+                        <option value="sedentary">Sedentário</option>
+                        <option value="lightlyActive">Levemente Ativo</option>
+                        <option value="moderatelyActive">Moderadamente Ativo</option>
+                        <option value="veryActive">Muito Ativo</option>
+                        <option value="extraActive">Extremamente Ativo</option>
+                    </select>
+                </section>
+                <!-- Botão para o usuário clicar para acionar o cálculo do PDCT após a conclusão das entradas do formulário acima -->
+                <section class="button-container">
+                    <button id="calculate-pdct">Calcular Meu PDCT</button>
+                </section>
+            </form>
+        </section>
+        <!-- Caixa de espaço reservado para exibir o PDCT do usuário após a entrada dos dados e o cálculo realizado -->
+        <section id="pdct-section" class="hide">
+            Seu PDCT é: <span id="display-pdct"></span>
+        </section>
+        <!-- Botão para permitir ao usuário prosseguir para a próxima etapa do processo após a conclusão do cálculo do PDCT -->
+        <section id="buttonBox" class="buttonBox hide">
+            <a id="nextStep1" href="./macros.html" class="buttonlogo">- Próxima Etapa <i class="fas fa-fire"></i> -</a>
+        </section>
+        <!-- Modal de Verificação de Idade -->
+        <div id="ageModal" class="modal">
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                <span class="close" id="ageSpan">&times;</span>
+                <p>A idade deve estar entre 18 e 100</p>
+            </div>
+        </div>
+        <!-- Modal de Verificação de Peso -->
+        <div id="weightModal" class="modal">
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                <span class="close" id="weightSpan">&times;</span>
+                <p>O peso inicial não deve ser inferior a 85 lbs ou superior a 800 lbs por motivos de segurança</p>
+            </div>
+        </div>
+        <!-- Modal de Verificação de Altura -->
+        <div id="heightModal" class="modal">
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                <span class="close" id="heightSpan">&times;</span>
+                <p>A altura deve estar entre 36 e 107 polegadas por motivos de segurança</p>
+            </div>
+        </div>
+        <!-- Modal de Verificação de Gênero -->
+        <div id="genderModal" class="modal">
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                <span class="close" id="genderSpan">&times;</span>
+                <p>Por favor, selecione um Gênero</p>
+            </div>
+        </div>
+        <!-- Modal de Verificação de Atividade -->
+        <div id="activityModal" class="modal">
+            <!-- Conteúdo do modal -->
+            <div class="modal-content">
+                <span class="close" id="activitySpan">&times;</span>
+                <p>Por favor, selecione um Nível de Atividade</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts do fontawesome para vinculação ao conteúdo da página -->
+    <script src="https://kit.fontawesome.com/45a746d079.js" crossorigin="anonymous"></script>
+    <!-- Funcionalidade JavaScript programada no arquivo calories.js e adicionada à página por meio desta tag de script -->
+    <script src="./js/calorias.js"></script>
+</body>
+
+</html>

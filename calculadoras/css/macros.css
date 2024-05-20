@@ -1,0 +1,97 @@
+/* Parent container with flex display properties for the table displaying 
+the user's PDCT and macro split combination */
+#macro-step3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 10px;
+}
+
+/* Styling section for Macros.html Page*/
+/* Setting Display Properties for overall wrapper element contaings macros.html child elements */
+#macro-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #fff;
+    margin: 10px;
+    padding: 10px;
+    width: 90vw;
+    max-width: 1250px;
+    min-height: 75vh;
+}
+
+/* Setting flex display property to allow styling of child elements for importation of PDCT from local storage */
+#macro-step2 {
+    display: flex;
+    align-items: flex-start;
+    padding: 1px;
+    width: 90vw;
+}
+
+/* Styling for id macros-box - this triggers javascript to import  the user's PDCT from Local Storage when they click */
+#macros-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* Styling for display box to hold the user's PDCT when import button above has been clicked */
+#macros-logo {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 2.25rem;
+    border: 3px solid white;
+    border-radius: 20%;
+    color: white;
+    background: black;
+    min-width: 260px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Media queries for responsivity on macros page */
+@media screen and (max-width:950px) {
+    #macro-step2 {
+        width: 90vw;
+    }
+
+    #macros-logo {
+        margin-bottom: 25px;
+    }
+
+    #choose-macro {
+        margin-top: 20px;
+    }
+
+    #macro-step3 {
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    #macro-container {
+        justify-content: center;
+    }
+}
+
+/* Adding header to table displaying user's macro-nutrient split applied to their PDCT */
+#yourmacros {
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    min-width: 260px;
+}
+
+/* Setting margins for calculation button on Macros.html page */
+#calculate-macros {
+    margin-top: 5px;
+}
+
+
